@@ -89,9 +89,9 @@ export default {
       axios.get('/users').then(response => {
         const users = response.data
         const user = users.find(user => user.email === this.email)
-        console.log('berhasil', user)
+        console.log(user)
 
-        localStorage.setItem('user', user)
+        localStorage.setItem('user', JSON.stringify(user))
       })
     }
   }

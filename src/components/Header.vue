@@ -12,7 +12,7 @@
 
     <!-- profile -->
     <div @click="openProfileDropdown = !openProfileDropdown" class="profile">
-      <img src="../assets/profile-picture.png" />
+      <img :src="user.photoProfile" />
       <div v-if="openProfileDropdown" class="dropdown">
         <div class="menu-text">
           <router-link to="/setting">Pengaturan</router-link>
@@ -30,7 +30,8 @@ export default {
   name: 'Header',
   data () {
     return {
-      openProfileDropdown: false
+      openProfileDropdown: false,
+      user: JSON.parse(localStorage.getItem('user'))
     }
   },
   methods: {

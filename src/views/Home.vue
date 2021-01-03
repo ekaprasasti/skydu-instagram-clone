@@ -9,7 +9,7 @@
           </div>
 
           <div class="posting-image">
-            <a @click="openPostingModal = true">
+            <a @click="openModal(post.id)">
               <img :src="post.image" />
             </a>
           </div>
@@ -23,18 +23,21 @@
 
       <div class="sidebar">
         <div class="sidebar-profile-image">
-          <img src="../assets/profile-picture.png" />
+          <img :src="user.photoProfile" />
         </div>
         
         <div class="sidebar-profile-name">
-          <div class="username">@eka_prasasti</div>
+          <div class="username">@{{ user.username }}</div>
 
-          <div class="name">Eka Putra Prasasti</div>
+          <div class="name">{{ user.fullName }}</div>
         </div>
       </div>
     </div>
 
-    <PostingDetail v-if="openPostingModal" @close="openPostingModal = false" />
+    <PostingDetail
+      v-if="openPostingModal"
+      @close="openPostingModal = false"
+      :id="postingDetailId" />
   </div>
 </template>
 
@@ -50,17 +53,23 @@ export default {
   data () {
     return {
       openPostingModal: false,
-      posts: []
+      posts: [],
+      user: JSON.parse(localStorage.getItem('user')),
+      postingDetailId: null,
     }
   },
   created() {
     this.loadPosts()
   },
   methods: {
-    loadPosts() {
+    loadPosts () {
       axios.get('/posts').then(response => {
         this.posts = response.data
       })
+    },
+    openModal (id) {
+      this.postingDetailId = id
+      this.openPostingModal = true
     }
   }
 }

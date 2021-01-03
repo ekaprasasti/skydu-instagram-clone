@@ -30,6 +30,14 @@
       "fullName": "Test Terus",
       "username": "testterus",
       "id": 5
+    },
+    {
+      "email": "pakephoto@gmail.com",
+      "password": "$2a$10$QPi5VmfUNzJ5j5Tg0fmULe8iFTF10kb6Jem8O96op7I5SnGSUxdUO",
+      "fullName": "Pake Photo",
+      "username": "pakephoto",
+      "photoProfile": "https://loremflickr.com/300/300?random=1",
+      "id": 6
     }
   ],
   "posts": [

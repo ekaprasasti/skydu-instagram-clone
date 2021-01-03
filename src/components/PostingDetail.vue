@@ -5,20 +5,20 @@
         <div class="modal-container">
           <div class="posting-detail">
             <div class="content-image">
-              <img src="../assets/post-picture-1.png" />
+              <img :src="post.image" />
             </div>
 
             <div class="content-description">
               <div class="profile-header">
-                <img class="profile-image" src="../assets/post-profile-1.png" />
-                <span class="profile-name">Posting 1</span>
+                <img class="profile-image" :src="post.image" />
+                <span class="profile-name">{{ post.username }}</span>
               </div>
 
               <div class="caption">
-                <img class="profile-image" src="../assets/post-profile-1.png" />
+                <img class="profile-image" :src="post.image" />
                 <div class="caption-text">
-                  <span class="profile-name">Posting 1</span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat nisi id velit posuere, et fermentum arcu dictum. Proin rhoncus lorem vel dictum pellentesque. Mauris consectetur varius urna sed imperdiet. Pellentesque sem justo, mollis vitae faucibus eget, placerat eget magna. Aliquam scelerisque nisi in tempor ullamcorper. Nunc ultricies cursus erat in laoreet. Aenean in fringilla nulla. Duis feugiat odio in accumsan blandit. Quisque in risus id felis malesuada tempor. Donec a semper odio.
+                  <span class="profile-name">{{ post.username }}</span>
+                  {{ post.description }}
                 </div>
               </div>
             </div>
@@ -32,6 +32,31 @@
     </div>
   </transition>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'PostingDetail',
+  props: ['id'],
+  data () {
+    return {
+      post: {}
+    }
+  },
+  created () {
+    this.loadPosting()
+  },
+  methods: {
+    loadPosting () {
+      axios.get('/posts/' + this.id)
+        .then(response => {
+          this.post = response.data
+        })
+    }
+  }
+}
+</script>
 
 <style scoped>
 .posting-detail {

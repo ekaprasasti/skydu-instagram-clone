@@ -11,7 +11,7 @@
               type="email"
               class="input-text"
               :class="{'is-error': errors.has('email')}"
-              placeholder="email" />
+              placeholder="Email" />
           <div class="error-message">
             {{ errors.first('email') }}
           </div>
@@ -47,20 +47,34 @@
 
         <div class="form-group">
           <input
+              name="photo-profile"
+              v-model="photoProfile"
+              v-validate="'required'"
+              type="text"
+              class="input-text"
+              :class="{'is-error': errors.has('photo-profile')}"
+              placeholder="Photo Profile URL" />
+          <div class="error-message">
+            {{ errors.first('photo-profile') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
               name="password"
               v-model="password"
               v-validate="'required'"
               type="password"
               class="input-text"
-              :class="{'is-error': errors.has('email')}"
-              placeholder="password" />
+              :class="{'is-error': errors.has('password')}"
+              placeholder="Password" />
           <div class="error-message">
             {{ errors.first('password') }}
           </div>
         </div>
 
         <div class="form-button">
-          <a @click="submitSignup">Signup</a>
+          <a @click="submitSignup">Daftar</a>
         </div>
       </form>
     </div>
@@ -80,6 +94,7 @@ export default  {
       email: '',
       fullName: '',
       username: '',
+      photoProfile: '',
       password: ''
     }
   },
@@ -87,12 +102,13 @@ export default  {
     submitSignup () {
       this.$validator.validateAll().then(result => {
         if (result) {
-          const {email, fullName, username, password} = this
+          const {email, fullName, username, photoProfile, password} = this
 
           axios.post('register', {
             email,
             fullName,
             username,
+            photoProfile,
             password
           }).then(() => {
             alert('Registrasi berhasil, silahkan anda login')
@@ -117,6 +133,7 @@ export default  {
   align-items: center;
   font-family: sans-serif;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 .signup-form {
   background-color: #ffffff;
@@ -140,6 +157,7 @@ export default  {
   height: 40px;
   padding: 0px 9px;
   font-family: sans-serif;
+  outline: none;
 }
 .form-button {
   margin-top: 20px;
