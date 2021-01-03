@@ -1,40 +1,22 @@
 <template>
   <div>
-    
-
     <div class="home">
       <div class="feed">
-        <div class="posting">
+        <div v-for="post in posts" :key="post.id" class="posting">
           <div class="posting-header">
-            <img class="posting-profile-image" src="@/assets/post-profile-1.png" />
-            <span class="posting-profile-name">Posting 1</span>
+            <img class="posting-profile-image" :src="post.profile_pict" />
+            <span class="posting-profile-name">{{ post.username }}</span>
           </div>
 
           <div class="posting-image">
             <a @click="openPostingModal = true">
-              <img src="../assets/post-picture-1.png" /> 
+              <img :src="post.image" />
             </a>
           </div>
 
           <div class="posting-description">
-            <span class="posting-profile-name">Posting 1</span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat nisi id velit posuere, et fermentum arcu dictum. Proin rhoncus lorem vel dictum pellentesque. Mauris consectetur varius urna sed imperdiet. Pellentesque sem justo, mollis vitae faucibus eget, placerat eget magna. Aliquam scelerisque nisi in tempor ullamcorper. Nunc ultricies cursus erat in laoreet. Aenean in fringilla nulla. Duis feugiat odio in accumsan blandit. Quisque in risus id felis malesuada tempor. Donec a semper odio.
-          </div>
-        </div>
-
-        <div class="posting">
-          <div class="posting-header">
-            <img class="posting-profile-image" src="../assets/post-profile-2.png" />
-            <span class="posting-profile-name">Posting 2</span>
-          </div>
-
-          <div class="posting-image">
-            <img src="../assets/post-picture-2.png" /> 
-          </div>
-
-          <div class="posting-description">
-            <span class="posting-profile-name">Posting 2</span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat nisi id velit posuere, et fermentum arcu dictum. Proin rhoncus lorem vel dictum pellentesque. Mauris consectetur varius urna sed imperdiet. Pellentesque sem justo, mollis vitae faucibus eget, placerat eget magna. Aliquam scelerisque nisi in tempor ullamcorper. Nunc ultricies cursus erat in laoreet. Aenean in fringilla nulla. Duis feugiat odio in accumsan blandit. Quisque in risus id felis malesuada tempor. Donec a semper odio.
+            <span class="posting-profile-name">{{ post.username }}</span>
+            {{ post.description }}
           </div>
         </div>
       </div>
@@ -58,6 +40,7 @@
 
 <script>
 import PostingDetail from '@/components/PostingDetail.vue'
+import axios  from "axios";
 
 export default {
   name: 'Home',
@@ -66,7 +49,18 @@ export default {
   },
   data () {
     return {
-      openPostingModal: false
+      openPostingModal: false,
+      posts: []
+    }
+  },
+  created() {
+    this.loadPosts()
+  },
+  methods: {
+    loadPosts() {
+      axios.get('/posts').then(response => {
+        this.posts = response.data
+      })
     }
   }
 }

@@ -18,7 +18,7 @@
           <router-link to="/setting">Pengaturan</router-link>
         </div>
         <div class="menu-text logout">
-          <router-link to="/login">Keluar</router-link>
+          <a @click="signout">Keluar</a>
         </div>
       </div>
     </div>
@@ -31,6 +31,14 @@ export default {
   data () {
     return {
       openProfileDropdown: false
+    }
+  },
+  methods: {
+    signout () {
+      localStorage.removeItem('token')
+      localStorage.removeItem('user')
+
+      this.$router.push('/login')
     }
   }
 }

@@ -3,53 +3,95 @@
     <div class="app-background">
       <img src="../assets/login-picture.png" />
     </div>
-    <div class="login-form">
-      <img class="logo" src="../assets/logo.png" />
 
-      <form>
-        <div class="form-group">
-          <input
-            name="email"
-            v-validate="'required|email'"
-            type="email"
-            class="input-text"
-            :class="{'is-error': errors.has('email')}"
-            placeholder="email" />
-          <div class="error-message">
-            {{ errors.first('email') }}
+    <div>
+      <div class="login-form">
+        <img class="logo" src="../assets/logo.png" />
+
+        <form>
+          <div class="form-group">
+            <input
+                name="email"
+                v-model="email"
+                v-validate="'required|email'"
+                type="email"
+                class="input-text"
+                :class="{'is-error': errors.has('email')}"
+                placeholder="email" />
+            <div class="error-message">
+              {{ errors.first('email') }}
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <input
-            name="password"
-            v-validate="'required'"
-            type="password"
-            class="input-text"
-            :class="{'is-error': errors.has('email')}"
-            placeholder="password" />
-          <div class="error-message">
-            {{ errors.first('password') }}
+          <div class="form-group">
+            <input
+                name="password"
+                v-model="password"
+                v-validate="'required'"
+                type="password"
+                class="input-text"
+                :class="{'is-error': errors.has('email')}"
+                placeholder="password" />
+            <div class="error-message">
+              {{ errors.first('password') }}
+            </div>
           </div>
-        </div>
 
-        <div class="form-button">
-          <a @click="submitLogin">Log In</a>
-        </div>
-      </form>
+          <div class="form-button">
+            <a @click="submitLogin">Log In</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="signup">
+        Belum punya akun? <router-link to="/register">Sign Up</router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Login',
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
   methods: {
     submitLogin () {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          this.$router.push('/')
+          axios.post('/login', {
+            email: this.email,
+            password: this.password
+          }).then((response) => {
+            const token = response.data.accessToken
+
+            localStorage.setItem('token', token)
+
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+
+            this.storeUserData()
+
+            this.$router.push('/')
+          }).catch((error) => {
+            const errorMessage = error.response.data
+            alert(errorMessage)
+          })
         }
+      })
+    },
+    storeUserData () {
+      axios.get('/users').then(response => {
+        const users = response.data
+        const user = users.find(user => user.email === this.email)
+        console.log('berhasil', user)
+
+        localStorage.setItem('user', user)
       })
     }
   }
@@ -111,5 +153,18 @@ export default {
 }
 .is-error {
   border-color: red !important;
+}
+.signup {
+  background-color: #ffffff;
+  width: 350px;
+  padding: 40px;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+  margin-top: 20px;
+}
+.signup a {
+  cursor: pointer;
+  color: #0095f6;
+  text-decoration: none;
 }
 </style>

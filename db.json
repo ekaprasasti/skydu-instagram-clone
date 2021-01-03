@@ -1,19 +1,50 @@
 {
-  "user": {
-    "email": "user@email.com",
-    "password": "123456"
-  },
+  "users": [
+    {
+      "email": "edit@gmail.com",
+      "password": "$2y$12$.CvQkaRv50q24dEypuuTruoYsIQQNG4RLSMqtNxI1SnMvTcxvqfiO",
+      "id": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$hL/sEsB3w8gm6e6tliRz8eVpdGaEGkHoZhrxFGocI4MigDfB4piGi",
+      "id": 2
+    },
+    {
+      "email": "form@gmail.com",
+      "password": "$2a$10$0dNoFILsfYeBGRw2Kkw3Se1hmcBXUw7yI1a5HlKN6Kh5Dl3ZyRx92",
+      "fullName": "Dari Form",
+      "username": "form",
+      "id": 3
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "$2a$10$IM27bhpMl8OnDCr9H2D/R.0sIp1TTX9NiT3LWv0GHl82VCmFYScXq",
+      "fullName": "Test Lagi",
+      "username": "testlagi",
+      "id": 4
+    },
+    {
+      "email": "test3@gmail.com",
+      "password": "$2a$10$LMy0iwDlJMDaBCQy02KpDeBbTao5JJlp7y/5QOw1zxHLo7wXnFXaO",
+      "fullName": "Test Terus",
+      "username": "testterus",
+      "id": 5
+    }
+  ],
   "posts": [
     {
       "id": 1,
       "username": "Posting 1",
-      "image": "@/assets/post-profile-1.png",
+      "profile_pict": "https://loremflickr.com/600/600?random=3",
+      "image": "https://loremflickr.com/600/600",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat nisi id velit posuere, et fermentum arcu dictum. Proin rhoncus lorem vel dictum pellentesque. Mauris consectetur varius urna sed imperdiet. Pellentesque sem justo, mollis vitae faucibus eget, placerat eget magna. Aliquam scelerisque nisi in tempor ullamcorper. Nunc ultricies cursus erat in laoreet. Aenean in fringilla nulla. Duis feugiat odio in accumsan blandit. Quisque in risus id felis malesuada tempor. Donec a semper odio."
     },
     {
       "id": 2,
       "username": "Posting 2",
-      "image": "@/assets/post-profile-2.png",
+      "profile_pict": "https://loremflickr.com/600/600?random=2",
+      "image": "https://loremflickr.com/600/600/dog",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat nisi id velit posuere, et fermentum arcu dictum. Proin rhoncus lorem vel dictum pellentesque. Mauris consectetur varius urna sed imperdiet. Pellentesque sem justo, mollis vitae faucibus eget, placerat eget magna. Aliquam scelerisque nisi in tempor ullamcorper. Nunc ultricies cursus erat in laoreet. Aenean in fringilla nulla. Duis feugiat odio in accumsan blandit. Quisque in risus id felis malesuada tempor. Donec a semper odio."
     }
   ]
