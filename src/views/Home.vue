@@ -21,16 +21,20 @@
         </div>
       </div>
 
-      <div class="sidebar">
-        <div class="sidebar-profile-image">
-          <img :src="user.photoProfile" />
-        </div>
-        
-        <div class="sidebar-profile-name">
-          <div class="username">@{{ user.username }}</div>
+      <div class="sidebar-container">
+        <div class="sidebar">
+          <div class="sidebar-profile-image">
+            <img :src="user.photoProfile" />
+          </div>
+          
+          <div class="sidebar-profile-name">
+            <div class="username">@{{ user.username }}</div>
 
-          <div class="name">{{ user.fullName }}</div>
+            <div class="name">{{ user.fullName }}</div>
+          </div>
         </div>
+
+        <a @click="openPostingForm = true">Post</a>
       </div>
     </div>
 
@@ -38,21 +42,30 @@
       v-if="openPostingModal"
       @close="openPostingModal = false"
       :id="postingDetailId" />
+    
+    <PostingForm
+      v-if="openPostingForm"
+      @close="openPostingForm = false"
+      @success="successPostingForm"
+    />
   </div>
 </template>
 
 <script>
 import PostingDetail from '@/components/PostingDetail.vue'
+import PostingForm from '@/components/PostingForm.vue'
 import axios  from "axios";
 
 export default {
   name: 'Home',
   components: {
-    PostingDetail
+    PostingDetail,
+    PostingForm
   },
   data () {
     return {
       openPostingModal: false,
+      openPostingForm: false,
       posts: [],
       user: JSON.parse(localStorage.getItem('user')),
       postingDetailId: null,
@@ -70,6 +83,10 @@ export default {
     openModal (id) {
       this.postingDetailId = id
       this.openPostingModal = true
+    },
+    successPostingForm () {
+      this.openPostingForm = false
+      this.loadPosts()
     }
   }
 }
@@ -120,8 +137,21 @@ export default {
 }
 
 /* sidebar */
+.sidebar-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+.sidebar-container a {
+  margin-left: 50px;
+  font-size: 15px;
+  color: #3EA5F6;
+  font-weight: bold;
+  cursor: pointer;
+}
 .sidebar {
   margin-left: 28px;
+  align-items: center;
   display: flex;
 }
 .sidebar-profile {

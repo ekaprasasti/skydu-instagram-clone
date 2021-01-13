@@ -14,9 +14,9 @@ export default {
       if (err.response.status === 401) {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
-      }
 
-      this.$router.push('/login')
+        this.$router.push('/login')
+      }
 
       throw err;
     });

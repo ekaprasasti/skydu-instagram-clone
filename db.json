@@ -32,10 +32,10 @@
       "id": 5
     },
     {
-      "email": "pakephoto@gmail.com",
-      "password": "$2a$10$QPi5VmfUNzJ5j5Tg0fmULe8iFTF10kb6Jem8O96op7I5SnGSUxdUO",
-      "fullName": "Pake Photo",
-      "username": "pakephoto",
+      "email": "photolagi@gmail.com",
+      "password": "$2a$10$ICVIpkCm/6zWGoHMP.c4meogbtAn.zXGnX5ms7E.Tzx8U1035v2wC",
+      "fullName": "photolagi",
+      "username": "photolagi",
       "photoProfile": "https://loremflickr.com/300/300?random=1",
       "id": 6
     }
@@ -54,6 +54,27 @@
       "profile_pict": "https://loremflickr.com/600/600?random=2",
       "image": "https://loremflickr.com/600/600/dog",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat nisi id velit posuere, et fermentum arcu dictum. Proin rhoncus lorem vel dictum pellentesque. Mauris consectetur varius urna sed imperdiet. Pellentesque sem justo, mollis vitae faucibus eget, placerat eget magna. Aliquam scelerisque nisi in tempor ullamcorper. Nunc ultricies cursus erat in laoreet. Aenean in fringilla nulla. Duis feugiat odio in accumsan blandit. Quisque in risus id felis malesuada tempor. Donec a semper odio."
+    },
+    {
+      "username": "photolagi",
+      "profile_pict": "https://loremflickr.com/300/300?random=1",
+      "image": "",
+      "description": "",
+      "id": 3
+    },
+    {
+      "username": "photolagi",
+      "profile_pict": "https://loremflickr.com/300/300?random=1",
+      "image": "https://loremflickr.com/600/600?random=4",
+      "description": "Test test test",
+      "id": 4
+    },
+    {
+      "username": "photolagi",
+      "profile_pict": "https://loremflickr.com/300/300?random=1",
+      "image": "https://loremflickr.com/600/600?random=5",
+      "description": "Test",
+      "id": 5
     }
   ]
 }

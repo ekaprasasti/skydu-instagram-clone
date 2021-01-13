@@ -61,7 +61,7 @@ export default {
 <style scoped>
 .posting-detail {
   display: flex;
-  height: 680px;
+  height: 550px;
   font-family: sans-serif;
 }
 
@@ -101,7 +101,6 @@ export default {
 }
 
 /* popup modal base style */
-
 .modal-close {
   position: absolute;
   width: 48px;
