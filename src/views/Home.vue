@@ -153,6 +153,7 @@ export default {
   margin-left: 28px;
   align-items: center;
   display: flex;
+  height: 70px;
 }
 .sidebar-profile {
   margin-top: 18px;

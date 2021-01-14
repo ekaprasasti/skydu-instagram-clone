@@ -78,7 +78,7 @@ export default {
     submitPosting () {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          axios.post('posts', {
+          axios.post('/posts', {
             username: this.user.username,
             profile_pict: this.user.photoProfile,
             image: this.photoURL,

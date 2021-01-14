@@ -41,7 +41,7 @@
     },
     {
       "email": "ekaprasasti@gmail.com",
-      "password": "$2a$10$voGyGT4eUN4/kwEBTtNiWe3Jl0y4FoNWpTRm2TPwtM75vlONcFj0e",
+      "password": "$2a$10$WsFS2fWpKkNomZBbgu5k6udGOXo0sDAb2oiEQs8uLZmcw4ycpdQr2",
       "fullName": "Eka Prasasti",
       "username": "ekaprasasti",
       "photoProfile": "https://ekaprasasti.github.io/assets/img/gw.jpg",
@@ -113,6 +113,13 @@
       "image": "https://loremflickr.com/600/600?random=5",
       "description": "Test",
       "id": 5
+    },
+    {
+      "username": "ekaprasasti",
+      "profile_pict": "https://ekaprasasti.github.io/assets/img/gw.jpg",
+      "image": "https://ekaprasasti.github.io/assets/img/gw.jpg",
+      "description": "Narsis Bet",
+      "id": 6
     }
   ]
 }
