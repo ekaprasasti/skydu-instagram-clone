@@ -77,7 +77,6 @@ export default {
 
             this.storeUserData()
 
-            this.$router.push('/')
           }).catch((error) => {
             const errorMessage = error.response.data
             alert(errorMessage)
@@ -89,9 +88,10 @@ export default {
       axios.get('/users').then(response => {
         const users = response.data
         const user = users.find(user => user.email === this.email)
-        console.log(user)
 
         localStorage.setItem('user', JSON.stringify(user))
+
+        this.$router.push('/')
       })
     }
   }

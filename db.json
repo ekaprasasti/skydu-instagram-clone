@@ -38,6 +38,44 @@
       "username": "photolagi",
       "photoProfile": "https://loremflickr.com/300/300?random=1",
       "id": 6
+    },
+    {
+      "email": "ekaprasasti@gmail.com",
+      "password": "$2a$10$voGyGT4eUN4/kwEBTtNiWe3Jl0y4FoNWpTRm2TPwtM75vlONcFj0e",
+      "fullName": "Eka Prasasti",
+      "username": "ekaprasasti",
+      "photoProfile": "https://ekaprasasti.github.io/assets/img/gw.jpg",
+      "id": 7
+    },
+    {
+      "email": "ubahpassword1@gmail.com",
+      "password": "$2a$10$voGyGT4eUN4/kwEBTtNiWe3Jl0y4FoNWpTRm2TPwtM75vlONcFj0e",
+      "id": 8
+    },
+    {
+      "password": "test",
+      "id": 9
+    },
+    {
+      "email": "ubahpassword@gmail.com",
+      "password": "$2a$10$voGyGT4eUN4/kwEBTtNiWe3Jl0y4FoNWpTRm2TPwtM75vlONcFj0e",
+      "id": 10
+    },
+    {
+      "email": "ubahpassword2@gmail.com",
+      "password": "test",
+      "fullName": "Ubah Password 2",
+      "username": "ubahpassword",
+      "photoProfile": "https://ekaprasasti.github.io/assets/img/gw.jpg",
+      "id": 11
+    },
+    {
+      "email": "ubahpassword3@gmail.com",
+      "password": "$2a$10$GhC5aS8gEk4.00zv5fewtO.s0PoHyRnduH.xNXsjIDFBdT8RiwHeO",
+      "fullName": "Ubah Password 3",
+      "username": "ubahpassword3",
+      "photoProfile": "https://ekaprasasti.github.io/assets/img/gw.jpg",
+      "id": 12
     }
   ],
   "posts": [
