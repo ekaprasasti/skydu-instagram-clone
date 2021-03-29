@@ -7,7 +7,7 @@ import axios from 'axios'
 Vue.use(VeeValidate)
 
 // axios.defaults.baseURL = 'http://localhost:3000'
-axios.defaults.baseURL = 'http://api.skydu.cloud:8001'
+axios.defaults.baseURL = 'https://instaclone.skydu.cloud'
 
 const token = localStorage.getItem('token')
 if (token) {
